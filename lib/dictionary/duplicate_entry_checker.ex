@@ -4,7 +4,6 @@ defmodule ChineseDictionary.DuplicateEntryChecker do
 
   def start_link(_opts) do
     Agent.start_link(fn -> %{} end)
-    # TODO update
   end
 
   def get_counter(bucket) do
