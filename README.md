@@ -1,9 +1,26 @@
 # ChineseDictionary
 
-## Installation
+[![Build Status](https://travis-ci.org/JorisKok/chinese_dictionary.svg?branch=master)](https://travis-ci.org/JorisKok/chinese_dictionary)
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `chinese_dictionary` to your list of dependencies in `mix.exs`:
+Docs: [https://hexdocs.pm/chinese_dictionary](https://hexdocs.pm/chinese_dictionary).
+
+
+### How to use
+
+```
+alias ChineseDictionary
+```
+
+##### Simplified
+```
+translation = ChineseDictionary.chinese_simplified_to_english("学习")
+
+```
+
+##### Traditional
+```
+translation = ChineseDictionary.chinese_traditional_to_english("學習")
+```
 
 ```elixir
 def deps do
@@ -12,8 +29,3 @@ def deps do
   ]
 end
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/chinese_dictionary](https://hexdocs.pm/chinese_dictionary).
-
