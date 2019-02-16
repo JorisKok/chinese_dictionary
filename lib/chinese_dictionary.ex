@@ -1,6 +1,7 @@
 defmodule ChineseDictionary do
   Code.require_file("../lib/dictionary/c_e_dict_simplified.exs", __DIR__)
   Code.require_file("../lib/dictionary/c_e_dict_traditional.exs", __DIR__)
+
   @moduledoc """
   Documentation for ChineseDictionary.
   """

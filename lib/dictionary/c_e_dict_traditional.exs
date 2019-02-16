@@ -1,24 +1,14 @@
 defmodule ChineseDictionary.CEDictTraditional do
   import ChineseDictionary.DuplicateEntryChecker
+  @moduledoc false
 
-  @moduledoc """
-  Generates the CEDict module for traditional characters
-  Split up traditional/simplified, because else we run out of memory
-  For each entry it generates a function
-  There are duplicate entries in the dictionary
-  So we create a function with an entry identifier
-  So can try to check if there are more entries via
-  chinese_to_english(character, 0)
-  chinese_to_english(character, 1)
-  ... etc
-  And then combine the results
-  """
   @external_resource dictionary = Path.join([__DIR__, "cedict_ts.u8"])
 
   {:ok, bucket} = ChineseDictionary.DuplicateEntryChecker.start_link([])
 
   for line <- File.stream!(dictionary, [], :line) do
-    expression = ~r/(?<traditional>.+?) (?<simplified>.+?) \[(?<pinyin>.+)\] \/(?<translation>.+)(\/\n)/u
+    expression =
+      ~r/(?<traditional>.+?) (?<simplified>.+?) \[(?<pinyin>.+)\] \/(?<translation>.+)(\/\n)/u
 
     case Regex.named_captures(expression, line) do
       %{} = value ->
@@ -32,7 +22,9 @@ defmodule ChineseDictionary.CEDictTraditional do
 
         # Update the helper
         put_character(bucket, value["traditional"])
-      _ -> nil
+
+      _ ->
+        nil
     end
   end
 
@@ -48,7 +40,7 @@ defmodule ChineseDictionary.CEDictTraditional do
   # where 0 is incremented for each definition
   defp get_translation(accumulator, character, counter) do
     try do
-      accumulator ++ [chinese_to_english(character, counter)]
+      (accumulator ++ [chinese_to_english(character, counter)])
       |> get_translation(character, counter + 1)
     rescue
       _ ->

@@ -30,6 +30,7 @@ defmodule ChineseDictionary.DuplicateEntryChecker do
     case get_character(bucket) do
       same when same == character ->
         same_character(bucket, get_counter(bucket))
+
       _new ->
         new_character(bucket)
     end

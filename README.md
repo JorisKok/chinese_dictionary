@@ -7,20 +7,6 @@ Docs: [https://hexdocs.pm/chinese_dictionary](https://hexdocs.pm/chinese_diction
 
 ### How to use
 
-```
-alias ChineseDictionary
-```
-
-##### Simplified
-```
-translation = ChineseDictionary.chinese_simplified_to_english("学习")
-
-```
-
-##### Traditional
-```
-translation = ChineseDictionary.chinese_traditional_to_english("學習")
-```
 
 ```elixir
 def deps do
@@ -28,4 +14,20 @@ def deps do
     {:chinese_dictionary, "~> 0.1.0"}
   ]
 end
+```
+
+##### In your module
+
+```
+alias ChineseDictionary
+```
+
+##### For simplified characters
+```
+translation = ChineseDictionary.chinese_simplified_to_english("学习")
+```
+
+##### For traditional characters
+```
+translation = ChineseDictionary.chinese_traditional_to_english("學習")
 ```
