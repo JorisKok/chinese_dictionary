@@ -1,8 +1,9 @@
-defmodule ChineseDictionary.CEDict do
+defmodule ChineseDictionary.CEDictSimplified do
   import ChineseDictionary.DuplicateEntryChecker
 
   @moduledoc """
-  Generates the CEDict module
+  Generates the CEDict module for simplified characters
+  Split up traditional/simplified, because else we run out of memory
   For each entry it generates a function
   There are duplicate entries in the dictionary
   So we create a function with an entry identifier
