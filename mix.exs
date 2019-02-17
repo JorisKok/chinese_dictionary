@@ -8,12 +8,29 @@ defmodule ChineseDictionary.MixProject do
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      description: description(),
+      package: package(),
       # Docs
       name: "Chinese Dictionary",
       source_url: "https://github.com/JorisKok/chinese_dictionary",
       docs: [
         extras: ["README.md"]
       ]
+    ]
+  end
+
+  defp description do
+    "A chinese dictionary based on CEDict. \n
+    Supports Traditional -> English, and Simplified -> English\n
+    Generates the CEDict text file into a function overloaded module"
+  end
+
+  defp package do
+    [
+      licenses: ["Apache 2.0"],
+      links: %{
+        "GitHub" => "https://github.com/JorisKok/chinese_dictionary"
+      }
     ]
   end
 

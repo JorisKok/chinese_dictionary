@@ -4,28 +4,23 @@ defmodule ChineseDictionarySimplifiedTest do
   import AssertValue
 
   describe "Translate Chinese to English" do
-    test "Translate 㱾" do
+    test "Translate 化石" do
       assert_value(
-        ChineseDictionary.chinese_simplified_to_english("㱾") == [
-          "gai1 - a kind of metal or jade ornament worn in ancient times to ward off evil spirits"
+        ChineseDictionary.chinese_simplified_to_english("化石") == ["hua4 shi2 - fossil"]
+      )
+    end
+
+    test "Translate 一团乱糟" do
+      assert_value(
+        ChineseDictionary.chinese_simplified_to_english("一团乱糟") == [
+          "yi1 tuan2 luan4 zao1 - a chaotic mess"
         ]
       )
     end
 
-    test "Translate 㲈" do
+    test "Translate 活下" do
       assert_value(
-        ChineseDictionary.chinese_simplified_to_english("㲈") == [
-          "shao2 - variant of 韶[shao2]",
-          "tao2 - variant of 鞀[tao2]"
-        ]
-      )
-    end
-
-    test "Translate 㲋" do
-      assert_value(
-        ChineseDictionary.chinese_simplified_to_english("㲋") == [
-          "chuo4 - ancient name for an animal similar to rabbit but bigger"
-        ]
+        ChineseDictionary.chinese_simplified_to_english("活下") == ["huo2 xia4 - to survive"]
       )
     end
 
@@ -38,10 +33,10 @@ defmodule ChineseDictionarySimplifiedTest do
       )
     end
 
-    test "Translate 池上" do
+    test "Translate 派遣" do
       assert_value(
-        ChineseDictionary.chinese_simplified_to_english("池上") == [
-          "Chi2 shang4 - Chihshang or Chihshang township in Taitung County 臺東縣|台东县[Tai2 dong1 Xian4], southeast Taiwan"
+        ChineseDictionary.chinese_simplified_to_english("派遣") == [
+          "pai4 qian3 - to send (on a mission)/to dispatch"
         ]
       )
     end
@@ -55,18 +50,14 @@ defmodule ChineseDictionarySimplifiedTest do
       )
     end
 
-    test "Translate 龙舌兰酒" do
-      assert_value(
-        ChineseDictionary.chinese_simplified_to_english("龙舌兰酒") == [
-          "long2 she2 lan2 jiu3 - tequila"
-        ]
-      )
+    test "Translate 活着" do
+      assert_value(ChineseDictionary.chinese_simplified_to_english("活着") == ["huo2 zhe5 - alive"])
     end
 
-    test "Translate 龙州" do
+    test "Translate 北京周报" do
       assert_value(
-        ChineseDictionary.chinese_simplified_to_english("龙州") == [
-          "Long2 zhou1 - Longzhou county in Chongzuo 崇左[Chong2 zuo3], Guangxi"
+        ChineseDictionary.chinese_simplified_to_english("北京周报") == [
+          "Bei3 jing1 Zhou1 bao4 - Beijing Review/also written 北京週報|北京周报"
         ]
       )
     end
@@ -92,6 +83,14 @@ defmodule ChineseDictionarySimplifiedTest do
         ChineseDictionary.chinese_simplified_to_english("黑顶奇鹛") == [
           "hei1 ding3 qi2 mei2 - (bird species of China) black-headed sibia (Heterophasia desgodinsi)"
         ]
+      )
+    end
+  end
+
+  describe "Test if not found" do
+    test "Some english word" do
+      assert_value(
+        ChineseDictionary.chinese_simplified_to_english("Nothing") == []
       )
     end
   end

@@ -45,4 +45,12 @@ defmodule ChineseDictionaryTraditionalTest do
       )
     end
   end
+
+  describe "Test if not found" do
+    test "Some english word" do
+      assert_value(
+        ChineseDictionary.chinese_traditional_to_english("Nothing") == []
+      )
+    end
+  end
 end
