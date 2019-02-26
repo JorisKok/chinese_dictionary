@@ -31,3 +31,7 @@ translation = ChineseDictionary.chinese_simplified_to_english("学习")
 ```
 translation = ChineseDictionary.chinese_traditional_to_english("學習")
 ```
+
+##### Notes
+
+May take a bit to compile
