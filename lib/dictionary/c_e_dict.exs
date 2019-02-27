@@ -3,29 +3,33 @@ defmodule ChineseDictionary.CEDict do
 
   @external_resource dictionary = Path.join([__DIR__, "cedict.txt"])
 
+  {:ok, agent} = Agent.start_link(fn -> 0 end)
+
   for line <- File.stream!(dictionary, [], :line) do
-    IO.inspect dictionary.count()
     expression =
       ~r/(?<traditional>.+?) (?<simplified>.+?) \[(?<pinyin>.+)\] \/(?<translation>.+)(\/\n)/u
 
     case Regex.named_captures(expression, line) do
       %{} = value ->
         # Create the translate function
-#        def translation(simplified, traditional, count)
-#            when simplified == unquote(value["simplified"]) or
-#                   traditional == unquote(value["traditional"]) or count == unquote(count) do
-#          {
-#            unquote(count),
-#            unquote(value["simplified"]),
-#            unquote(value["traditional"]),
-#            unquote(value["pinyin"]) <> " - " <> unquote(value["translation"])
-#          }
-#        end
-      nil
+        count = Agent.get(agent, fn count -> count end)
+
+        def translation(simplified, traditional, count)
+            when simplified == unquote(value["simplified"]) or
+                   traditional == unquote(value["traditional"]) or count == unquote(count) do
+          {
+            unquote(count),
+            unquote(value["simplified"]),
+            unquote(value["traditional"]),
+            unquote(value["pinyin"]) <> " - " <> unquote(value["translation"])
+          }
+        end
 
       _ ->
         nil
     end
+
+    Agent.update(agent, fn count -> count + 1 end)
   end
 
   def get_from_simplified(simplified) do
