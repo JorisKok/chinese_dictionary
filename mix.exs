@@ -21,8 +21,7 @@ defmodule ChineseDictionary.MixProject do
 
   defp description do
     "A chinese dictionary based on CEDict. \n
-    Supports Traditional -> English, and Simplified -> English\n
-    Generates the CEDict text file into a function overloaded module"
+    Supports Traditional -> English, and Simplified -> English"
   end
 
   defp package do
