@@ -1,4 +1,5 @@
 defmodule ChineseDictionary.Dict do
+  @moduledoc false
   def get_from_simplified(simplified) do
     get("simplified", simplified)
   end

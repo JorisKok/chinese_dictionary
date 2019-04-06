@@ -1,6 +1,6 @@
 defmodule ChineseDictionary do
   @moduledoc """
-  Documentation for ChineseDictionary.
+  Translate Chinese traditional or simplified to English
   """
 
   @doc ~S"""

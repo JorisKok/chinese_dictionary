@@ -1,5 +1,6 @@
 defmodule Mix.Tasks.GenerateDictionary do
   use Mix.Task
+  @moduledoc false
 
   def run(_) do
     Mix.shell().info("Creating database")

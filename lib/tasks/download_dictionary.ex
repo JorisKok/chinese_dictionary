@@ -1,5 +1,8 @@
 defmodule Mix.Tasks.DownloadDictionary do
   use Mix.Task
+  @moduledoc """
+  Download the latest Chinese - English sqlite3 database
+  """
 
   @dictionary_link "https://raw.githubusercontent.com/JorisKok/chinese_dictionary/master/dictionary/dict.sqlite3"
 
