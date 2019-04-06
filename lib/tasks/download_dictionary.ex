@@ -1,7 +1,7 @@
 defmodule Mix.Tasks.DownloadDictionary do
   use Mix.Task
 
-  @dictionary_link "https://raw.githubusercontent.com/JorisKok/chinese_dictionary/master/lib/dictionary/dict.sqlite3"
+  @dictionary_link "https://raw.githubusercontent.com/JorisKok/chinese_dictionary/master/dictionary/dict.sqlite3"
 
   @shortdoc "Download the latest Chinese - English database"
   def run(_) do
