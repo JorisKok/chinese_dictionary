@@ -17,3 +17,10 @@ def deps do
 end
 ```
 
+And we need to download the sqlite3 dictionary
+```elixir
+mix download_dictionary
+```
+
+Check the hex docs for further instructions
+

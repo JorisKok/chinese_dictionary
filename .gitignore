@@ -23,3 +23,5 @@ erl_crash.dump
 chinese_dictionary-*.tar
 
 .idea
+
+lib/dictionary/dict.sqlite3

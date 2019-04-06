@@ -45,7 +45,8 @@ defmodule ChineseDictionary.MixProject do
     [
       {:assert_value, ">= 0.0.0", only: [:dev, :test]},
       {:ex_doc, "~> 0.19", only: :dev, runtime: false},
-      {:sqlitex, "~> 1.5"}
+      {:sqlitex, "~> 1.5"},
+      {:httpoison, "~> 1.4"}
     ]
   end
 end
